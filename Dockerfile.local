@@ -1,0 +1,12 @@
+FROM golang:1.21.5-alpine
+
+ENV GOPATH /go
+
+RUN mkdir -p /go/src
+WORKDIR /go/src
+
+COPY . /go/src
+
+RUN go mod tidy
+
+CMD ["go", "run", "main.go"]
